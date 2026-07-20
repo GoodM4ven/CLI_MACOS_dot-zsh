@@ -241,7 +241,7 @@ The rest of my opinionated macOS setup — mostly `brew install --cask <name>`, 
 - Lorem Ipsum
 - App Cleaner
 
-### Development Have-Tos
+### Development
 
 - [OrbStack](https://orbstack.dev/)
 - [Meld](https://gitlab.com/dehesselle/meld_macos)
