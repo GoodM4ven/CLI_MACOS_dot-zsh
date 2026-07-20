@@ -1,0 +1,24 @@
+# Required for the scripts in this repo.
+brew "ffmpeg" # vid-combine, vid-compress, vid-eq-audio, vid-extract-*, vid-pic, vid-trim
+brew "aria2"  # download()
+
+# mise (https://github.com/jdx/mise) is NOT installed via this Brewfile — .zsh_env
+# hardcodes ~/.local/bin/mise, which is where the standalone installer puts it
+# (`curl https://mise.jdx.dev/install.sh | sh`), not where Homebrew would.
+
+# Window manager / bar / hotkeys — configs live under configs/, symlinked from ~/.config (see README).
+tap "asmvik/formulae" # yabai/skhd maintainership moved here from koekeishiya
+brew "yabai"           # https://github.com/asmvik/yabai
+brew "skhd"            # https://github.com/asmvik/skhd
+tap "FelixKratz/formulae"
+brew "sketchybar"      # https://github.com/FelixKratz/SketchyBar
+cask "font-hack-nerd-font" # sketchybar icons
+cask "karabiner-elements" # https://github.com/pqrs-org/Karabiner-Elements
+cask "hammerspoon" # https://www.hammerspoon.org
+
+# Editor — the `code` function wraps `zed`.
+cask "zed" # https://github.com/zed-industries/zed
+
+# AI CLIs — configs live under configs/, symlinked from ~/.codex and ~/.claude (see README).
+cask "codex"       # https://github.com/openai/codex
+cask "claude-code" # https://github.com/anthropics/claude-code

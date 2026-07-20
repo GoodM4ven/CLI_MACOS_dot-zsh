@@ -1,0 +1,27 @@
+# system
+alias logout='osascript -e "tell application \"System Events\" to log out"'
+alias reboot='read -p "Are you sure you want to reboot? [y/N]: " confirm && [[ "$confirm" =~ ^[yY]$ ]] && sudo reboot || echo "Cancelled."'
+alias update='brew update && brew upgrade && brew upgrade --cask && brew cleanup && softwareupdate -l'
+
+# Laravel
+alias cda='composer dump-autoload'
+alias art='php artisan'
+alias mfs='php artisan migrate:fresh --seed'
+alias opt='php artisan optimize:clear'
+alias que='php artisan queue:work'
+alias pest='clear && ./vendor/bin/pest'
+alias green='clear && composer green'
+
+# TALL-Stack
+alias lara='cd /Users/goodm4ven/Code/Scripts/CLI_LARAVEL_lara-stacker && ./lara-stacker.sh'
+
+# Git
+alias oops='git pull --rebase origin $(git rev-parse --abbrev-ref HEAD)'
+alias chest='git stash push -u'
+alias grit='git merge -X theirs origin/dev'
+alias maiv='git fetch origin && git reset --hard origin/main && git push --force-with-lease'
+alias nometa='git config core.fileMode false'
+
+# AI
+alias codex='command codex --yolo'
+alias clodex='command claude --dangerously-skip-permissions'

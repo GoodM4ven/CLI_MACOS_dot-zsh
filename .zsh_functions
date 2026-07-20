@@ -1,0 +1,76 @@
+# system
+own() { sudo chown -R "$USER":"$USER" "${1:-.}"; }
+shutdown() {
+  read -p "Are you sure you want to shutdown? [y/N]: " confirm
+  [[ "$confirm" =~ ^[yY]$ ]] && sudo shutdown "$@" || echo "Cancelled."
+}
+wholecleanup() {
+  echo "Disk usage before:"
+  df -h / | tail -1
+
+  echo "==> Emptying Trash..."
+  find ~/.Trash -mindepth 1 -delete 2>/dev/null
+
+  echo "==> Cleaning Homebrew cache..."
+  brew cleanup -s 2>/dev/null
+
+  echo "==> Clearing Helium browser cache..."
+  rm -rf ~/Library/Caches/net.imput.helium/* 2>/dev/null
+
+  echo "==> Deleting leftover .dmg/.pkg installers in Downloads..."
+  find ~/Downloads -maxdepth 1 \( -iname "*.dmg" -o -iname "*.pkg" \) -delete 2>/dev/null
+
+  echo "==> Cleaning npm cache..."
+  npm cache clean --force 2>/dev/null
+
+  echo "==> Pruning pnpm store..."
+  pnpm store prune 2>/dev/null
+
+  echo "Disk usage after:"
+  df -h / | tail -1
+}
+
+# Laravel
+dev() {
+  php artisan optimize:clear
+  composer dev
+}
+npb() {
+  php artisan optimize:clear
+  if [ -f pnpm-lock.yaml ]; then
+    pnpm run build
+  else
+    npm run build
+  fi
+}
+bench() { APP_ENV=local APP_DEBUG=true ./vendor/bin/testbench "$@"; }
+pestbug() {
+  clear
+  local slowmo="${1:-400}"
+  shift || true
+
+  HEADLESS=false PWDEBUG=1 PW_SLOW_MO="$slowmo" ./vendor/bin/pest "$@"
+}
+
+# TALL-Stack
+alias permit='f() { sudo "$HOME/Code/Scripts/CLI_LARAVEL_lara-stacker/scripts/helpers/permit.sh" "$1"; }; f'
+
+# Git
+alias girm='f() { git rm -r --cached "$1"; }; f'
+oopsie() {
+  local current_branch target_branch
+  current_branch="$(git rev-parse --abbrev-ref HEAD)" || return 1
+  target_branch="${1:-$current_branch}"
+  git fetch origin || return 1
+  git rebase "origin/$current_branch" || return 1
+  if [ "$target_branch" != "$current_branch" ]; then
+    git rebase "origin/$target_branch" || return 1
+  fi
+  git push --force-with-lease origin "$current_branch"
+}
+
+# Editor
+alias code='f() { zed "$1"; }; f'
+
+# Misc.
+download() { aria2c -x 16 -s 16 -k 1M "$@"; }

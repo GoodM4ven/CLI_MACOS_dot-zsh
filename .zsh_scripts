@@ -1,0 +1,20 @@
+_dotzsh_dir="$HOME/Code/Scripts/CLI_MACOS_dot-zsh/scripts"
+
+# arabic
+alias aranum="$_dotzsh_dir/aranum.sh"
+alias arastrip="$_dotzsh_dir/arastrip.sh"
+
+# ffmpeg
+alias vid-combine="$_dotzsh_dir/vid-combine.sh"
+alias vid-compress="$_dotzsh_dir/vid-compress.sh"
+alias vid-eq-audio="$_dotzsh_dir/vid-eq-audio.sh"
+alias vid-extract-audio="$_dotzsh_dir/vid-extract-audio.sh"
+alias vid-extract-video="$_dotzsh_dir/vid-extract-video.sh"
+alias vid-pic="$_dotzsh_dir/vid-pic.sh"
+alias vid-trim="$_dotzsh_dir/vid-trim.sh"
+
+# else
+alias unicode-csv="$_dotzsh_dir/csv-to-xlsx.sh"
+alias anyurl="$_dotzsh_dir/normalize-url.sh"
+
+unset _dotzsh_dir

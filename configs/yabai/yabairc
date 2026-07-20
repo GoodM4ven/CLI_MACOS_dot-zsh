@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+sudo yabai --load-sa
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+# SketchyBar is 30 px high. This makes yabai's usable area (including grid
+# commands) start below it on every display.
+yabai -m config external_bar all:30:0
+
+# If an app creates a genuinely full-display window, normalize it below
+# SketchyBar. Ordinary-sized windows are left at their native dimensions.
+yabai -m signal --add label="normalize_maximized_window" event=window_created action="/Users/goodm4ven/.config/yabai/normalize-maximized-window.sh"
+yabai -m signal --add label="normalize_maximized_window_on_focus" event=window_focused action="/Users/goodm4ven/.config/yabai/normalize-maximized-window.sh"
+
+# Keep SketchyBar's workspace and application summaries synchronized with
+# yabai. These trigger the custom event consumed by the left-side items.
+for event in application_launched application_terminated window_created window_destroyed window_focused window_moved space_changed; do
+  yabai -m signal --add label="sketchybar_${event}" event="$event" action="/opt/homebrew/bin/sketchybar --trigger workspace_refresh"
+done

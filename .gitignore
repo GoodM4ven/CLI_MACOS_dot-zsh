@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# App-generated local-only files that ride along with whole-folder symlinks —
+# not config, not meant to be shared/versioned.
+configs/karabiner/automatic_backups/
+configs/zed/prompts/
+
+# Safety net: never let credential-shaped files slip into configs/,
+# even though only hand-picked, non-secret files are meant to live there.
+**/auth.json
+**/auth.db*
+**/*token*
+**/*secret*
+**/*credential*

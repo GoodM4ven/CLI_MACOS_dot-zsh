@@ -1,0 +1,103 @@
+#!/bin/bash
+export CONFIG_DIR="$HOME/.config/sketchybar"
+export ITEM_DIR="$CONFIG_DIR/items"
+export PLUGIN_DIR="$CONFIG_DIR/plugins"
+source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/icons.sh"
+
+sketchybar --add event workspace_refresh
+sketchybar --add event input_source_change com.apple.Carbon.TISNotifySelectedKeyboardInputSourceChanged
+
+sketchybar --bar position=top height=30 color=$BAR_COLOR shadow=off sticky=on topmost=window padding_left=20 padding_right=20 margin=0 y_offset=0 corner_radius=0 notch_width=0 blur_radius=0
+
+sketchybar --default updates=when_shown icon.font="SF Pro:Semibold:13" icon.color=$TEXT_COLOR label.font="SF Pro:Semibold:13" label.color=$TEXT_COLOR icon.padding_left=4 icon.padding_right=4 label.padding_left=4 label.padding_right=4 padding_left=2 padding_right=2 y_offset=2
+
+for i in {1..9}; do
+  sketchybar --add item "space.$i" left --set "space.$i" icon="$i" label.drawing=off icon.padding_left=7 icon.padding_right=7 background.height=24 background.corner_radius=6 click_script="yabai -m space --focus $i"
+done
+
+sketchybar --add item spaces.chevron left --set spaces.chevron icon="›" icon.font="SF Pro:Bold:19" label.drawing=off icon.padding_left=6 icon.padding_right=9
+
+sketchybar --add item workspace_controller left --set workspace_controller drawing=off updates=on script="$PLUGIN_DIR/spaces.sh" --subscribe workspace_controller workspace_refresh display_change
+
+sketchybar --add item workspace_apps left --set workspace_apps icon.drawing=off label="Loading…" label.font="SF Pro:Semibold:13" label.max_chars=120 label.padding_left=0 label.padding_right=8 updates=on script="$PLUGIN_DIR/workspace_apps.sh" --subscribe workspace_apps workspace_refresh display_change
+
+common=(
+  icon.font="SF Pro:Semibold:16"
+  label.font="SF Mono:Heavy:13"
+  label.width=40
+  label.align=center
+  background.drawing=on
+  background.color=$ITEM_BG_COLOR
+  background.corner_radius=7
+  background.height=23
+  padding_left=2
+  padding_right=2
+  icon.padding_left=7
+  icon.padding_right=4
+  label.padding_left=0
+  label.padding_right=4
+)
+
+sketchybar --add item battery right \
+           --set battery "${common[@]}" \
+                 icon="$ICON_BATTERY_100" \
+                 icon.font="SF Pro:Semibold:14" \
+                 script="$PLUGIN_DIR/battery.sh" \
+                 update_freq=15 \
+           --subscribe battery power_source_change
+
+sketchybar --add item ram right \
+           --set ram "${common[@]}" \
+                 icon="$ICON_RAM" \
+                 script="$PLUGIN_DIR/ram.sh" \
+                 update_freq=5
+
+sketchybar --add item cpu right \
+           --set cpu "${common[@]}" \
+                 icon="$ICON_CPU" \
+                 script="$PLUGIN_DIR/cpu.sh" \
+                 update_freq=5
+
+sketchybar --add item input_source right \
+           --set input_source \
+                 icon.drawing=off \
+                 label="A" \
+                 label.font="SF Pro:Bold:14" \
+                 label.width=20 \
+                 label.align=center \
+                 label.padding_left=2 \
+                 label.padding_right=2 \
+                 background.drawing=off \
+                 script="$PLUGIN_DIR/input_source.sh" \
+           --subscribe input_source input_source_change
+
+sketchybar --add item clock right \
+           --set clock \
+                 icon="$ICON_CLOCK" \
+                 icon.font="SF Pro:Semibold:13" \
+                 icon.padding_left=7 \
+                 icon.padding_right=5 \
+                 label.font="SF Pro:Semibold:13" \
+                 label.padding_left=0 \
+                 label.padding_right=8 \
+                 background.drawing=off \
+                 script="$PLUGIN_DIR/clock.sh" \
+                 update_freq=30
+
+sketchybar --add item calendar right \
+           --set calendar \
+                 icon="$ICON_CALENDAR" \
+                 icon.font="SF Pro:Semibold:13" \
+                 icon.padding_left=7 \
+                 icon.padding_right=5 \
+                 label.font="SF Pro:Semibold:13" \
+                 label.padding_left=0 \
+                 label.padding_right=8 \
+                 background.drawing=off \
+                 script="$PLUGIN_DIR/calendar.sh" \
+                 update_freq=60
+
+sketchybar --reorder battery ram cpu input_source calendar clock
+
+sketchybar --update

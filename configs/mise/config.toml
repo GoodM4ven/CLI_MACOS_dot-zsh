@@ -1,0 +1,13 @@
+[plugins]
+php = "https://github.com/verzly/mise-php#latest"
+
+[tools]
+node = "22"
+php = "8.4"
+pnpm = "11"
+python = "latest"
+uv = "latest"
+
+[env._.php]
+prebuilt_static = true
+prebuilt_static_flavor = "bulk"
