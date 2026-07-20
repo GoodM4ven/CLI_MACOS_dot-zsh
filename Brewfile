@@ -13,8 +13,9 @@ brew "skhd"            # https://github.com/asmvik/skhd
 tap "FelixKratz/formulae"
 brew "sketchybar"      # https://github.com/FelixKratz/SketchyBar
 cask "font-hack-nerd-font" # sketchybar icons
+cask "sf-symbols"          # sketchybar icons
 cask "karabiner-elements" # https://github.com/pqrs-org/Karabiner-Elements
-cask "hammerspoon" # https://www.hammerspoon.org
+cask "hammerspoon" # https://www.hammerspoon.org — sketchybar requirement
 
 # Editor — the `code` function wraps `zed`.
 cask "zed" # https://github.com/zed-industries/zed

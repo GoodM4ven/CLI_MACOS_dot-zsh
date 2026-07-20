@@ -56,24 +56,13 @@ The repo is split into:
 ### Dependencies
 
 - [`mise`](https://github.com/jdx/mise): runtime manager for `node`/`php`/`pnpm`/`python`/etc. Install via `curl https://mise.jdx.dev/install.sh | sh` — not Homebrew, which installs to the wrong path for `.zsh_env`'s activation line.
-- [`ffmpeg`](https://ffmpeg.org) (`brew install ffmpeg`): powers the `vid-*` scripts.
-- `aria2` (`brew install aria2`): powers `download`.
+- [`ffmpeg`](https://ffmpeg.org): powers the `vid-*` scripts.
+- `aria2`: powers `download`.
 - `python3` + `openpyxl`: for `unicode-csv` (auto-installs `openpyxl`).
-- [`zed`](https://github.com/zed-industries/zed) (`brew install --cask zed`): the `code` alias.
-- [Hammerspoon](https://www.hammerspoon.org) (`brew install --cask hammerspoon`).
-- Window manager stack — see [Linked App Configs](#linked-app-configs-configs) for install commands: [`karabiner-elements`](https://github.com/pqrs-org/Karabiner-Elements), [`yabai`](https://github.com/asmvik/yabai), [`skhd`](https://github.com/asmvik/skhd), [`sketchybar`](https://github.com/FelixKratz/SketchyBar).
+- [`zed`](https://github.com/zed-industries/zed): the `code` alias.
+- Window manager stack (install docs): [Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements), [yabai](https://github.com/asmvik/yabai/wiki/Installing-yabai-(latest-release)), [skhd](https://github.com/asmvik/skhd), [SketchyBar](https://github.com/FelixKratz/SketchyBar), [Hammerspoon](https://www.hammerspoon.org) (SketchyBar requirement) — fonts/icons: Hack Nerd Font, SF Symbols.
 
-`brew bundle --file Brewfile` installs everything above except `mise` in one go.
-
-> [!IMPORTANT]
-> `yabai --load-sa` (used in `yabairc`) needs System Integrity Protection partially disabled (via `csrutil` in Recovery Mode — see the [yabai wiki](https://github.com/asmvik/yabai/wiki)) and a sudoers entry for passwordless execution:
-> ```bash
-> echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d ' ' -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
-> ```
-> Also grant yabai Accessibility permissions (Privacy & Security -> Accessibility), then run `yabai --start-service`.
-
-> [!NOTE]
-> SketchyBar needs "Displays have separate Spaces" on (Desktop & Dock, default) and `brew install --cask font-hack-nerd-font` for icons. Start it with `brew services start sketchybar`.
+Everything above except `mise` is covered by `brew bundle --file Brewfile`.
 
 > [!NOTE]
 > `scripts/*.sh` keep `#!/usr/bin/env bash` shebangs and run fine on macOS's stock bash 3.2 — they're separate processes, unaffected by your login shell.
@@ -204,14 +193,14 @@ Real config files for a few apps live under `configs/`; their actual system path
 
 | App | Install | Symlinked as |
 |---|---|---|
-| [Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements) | `brew install --cask karabiner-elements` | `~/.config/karabiner` -> `configs/karabiner` |
-| [yabai](https://github.com/asmvik/yabai) | `brew tap asmvik/formulae && brew install yabai` | `~/.config/yabai` -> `configs/yabai` |
-| [skhd](https://github.com/asmvik/skhd) | `brew tap asmvik/formulae && brew install skhd` | `~/.skhdrc` -> `configs/skhd/skhdrc` |
-| [SketchyBar](https://github.com/FelixKratz/SketchyBar) | `brew tap FelixKratz/formulae && brew install sketchybar` | `~/.config/sketchybar` -> `configs/sketchybar` |
-| [Zed](https://github.com/zed-industries/zed) | `brew install --cask zed` | `~/.config/zed` -> `configs/zed` |
-| [mise](https://github.com/jdx/mise) | `curl https://mise.jdx.dev/install.sh \| sh` | `~/.config/mise` -> `configs/mise` |
-| [Codex CLI](https://github.com/openai/codex) | `brew install --cask codex` | `~/.codex/config.toml` only |
-| [Claude Code](https://github.com/anthropics/claude-code) | `brew install --cask claude-code` | `~/.claude/settings.json` only |
+| [Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements) | in Brewfile | `~/.config/karabiner` -> `configs/karabiner` |
+| [yabai](https://github.com/asmvik/yabai) | in Brewfile | `~/.config/yabai` -> `configs/yabai` |
+| [skhd](https://github.com/asmvik/skhd) | in Brewfile | `~/.skhdrc` -> `configs/skhd/skhdrc` |
+| [SketchyBar](https://github.com/FelixKratz/SketchyBar) | in Brewfile | `~/.config/sketchybar` -> `configs/sketchybar` |
+| [Zed](https://github.com/zed-industries/zed) | in Brewfile | `~/.config/zed` -> `configs/zed` |
+| [mise](https://github.com/jdx/mise) | `curl https://mise.jdx.dev/install.sh \| sh` (not in Brewfile) | `~/.config/mise` -> `configs/mise` |
+| [Codex CLI](https://github.com/openai/codex) | in Brewfile | `~/.codex/config.toml` only |
+| [Claude Code](https://github.com/anthropics/claude-code) | in Brewfile | `~/.claude/settings.json` only |
 | [Git](https://git-scm.com) | ships with Xcode Command Line Tools | `~/.gitconfig` -> `configs/git/gitconfig` |
 
 To adopt a new machine: install the app, `mv` the real file/dir into the matching `configs/<app>/` path, `ln -s` it back.
@@ -222,29 +211,21 @@ To adopt a new machine: install the app, `mv` the real file/dir into the matchin
 The rest of my opinionated macOS setup — mostly `brew install --cask <name>`, config not tracked here.
 
 - [Caffeine](https://intelliscapesolutions.com/apps/caffeine)
-- [macshot](https://github.com/sw33tLie/macshot)
+- [Macshot](https://github.com/sw33tLie/macshot)
 - [AltTab](https://alt-tab.app/)
-- [Sloth](https://sveinbjorn.org/sloth)
 - [Raycast](https://raycast.com/)
+- [Helium](https://helium.computer/)
+- [Sloth](https://sveinbjorn.org/sloth)
 - [LocalSend](https://localsend.org/)
 - [OBS](https://obsproject.com/)
+- [HandBrake](https://handbrake.fr/)
 - [VLC](https://www.videolan.org/vlc/)
 - [Audacity](https://www.audacityteam.org/)
 - [Kdenlive](https://kdenlive.org/)
 - [GIMP](https://www.gimp.org/)
 - [Inkscape](https://inkscape.org/)
-- [Meld](https://gitlab.com/dehesselle/meld_macos)
-- [TablePlus](https://tableplus.com/)
-- [Android Studio](https://developer.android.com/studio/)
-- [Firefox](https://www.mozilla.org/firefox/)
-- [Google Chrome](https://www.google.com/chrome/)
-- [SF Symbols](https://developer.apple.com/sf-symbols/)
-- [Telegram](https://telegram.org)
 - [Proton Mail](https://proton.me/mail)
-- [Helium](https://helium.computer/)
-- [OrbStack](https://orbstack.dev/)
-- [HandBrake](https://handbrake.fr/)
-- [Polypane](https://polypane.app/)
+- [Telegram](https://telegram.org)
 
 ### Raycast Extensions
 
@@ -260,6 +241,17 @@ The rest of my opinionated macOS setup — mostly `brew install --cask <name>`, 
 - Lorem Ipsum
 - App Cleaner
 
+### Development Have-Tos
+
+- [OrbStack](https://orbstack.dev/)
+- [Meld](https://gitlab.com/dehesselle/meld_macos)
+- [TablePlus](https://tableplus.com/)
+- [Polypane](https://polypane.app/)
+- [Firefox](https://www.mozilla.org/firefox/)
+- [Google Chrome](https://www.google.com/chrome/)
+- [Android Studio](https://developer.android.com/studio/)
+- [Xcode](https://apps.apple.com/app/xcode/id497799835)
+
 
 ## Credits
 
@@ -267,6 +259,7 @@ The rest of my opinionated macOS setup — mostly `brew install --cask <name>`, 
 - [Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements)
 - [yabai](https://github.com/asmvik/yabai)
 - [SketchyBar](https://github.com/FelixKratz/SketchyBar)
+- [Raycast](https://raycast.com/)
 - [Hammerspoon](https://www.hammerspoon.org)
 - [Zed](https://github.com/zed-industries/zed)
 - [FFmpeg](https://ffmpeg.org)
