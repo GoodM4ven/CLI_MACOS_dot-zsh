@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "collaboration_panel": {
+    "button": false
+  },
   "when_closing_with_no_tabs": "keep_window_open",
   "buffer_line_height": {
     "custom": 1.9500000476837158
@@ -39,9 +42,18 @@
     "git_status": true
   },
   "agent_servers": {
+    "glm-acp-agent": {
+      "default_config_options": {
+        "model": "glm-5.2",
+        "thought_level": "max",
+        "mode": "bypass_permissions",
+        "verbosity": "low"
+      },
+      "type": "registry"
+    },
     "codex-acp": {
       "default_config_options": {
-        "model": "gpt-5.6-luna",
+        "model": "gpt-5.6-sol",
         "reasoning_effort": "high",
         "fast-mode": false,
         "mode": "agent-full-access"
@@ -50,7 +62,7 @@
     },
     "claude-acp": {
       "default_config_options": {
-        "model": "default",
+        "model": "opus",
         "mode": "bypassPermissions"
       },
       "type": "registry"

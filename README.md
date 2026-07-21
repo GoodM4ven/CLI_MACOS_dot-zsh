@@ -58,6 +58,7 @@ The repo is split into:
 - [`mise`](https://github.com/jdx/mise): runtime manager for `node`/`php`/`pnpm`/`python`/etc. Install via `curl https://mise.jdx.dev/install.sh | sh` — not Homebrew, which installs to the wrong path for `.zsh_env`'s activation line.
 - [`ffmpeg`](https://ffmpeg.org): powers the `vid-*` scripts.
 - `aria2`: powers `download`.
+- Some CLI tooling used by the shell and coding-agent workflow...
 - `python3` + `openpyxl`: for `unicode-csv` (auto-installs `openpyxl`).
 - [`zed`](https://github.com/zed-industries/zed): the `code` alias.
 - [`OrbStack`](https://orbstack.dev/): Docker engine and Compose runtime for lara-stacker.

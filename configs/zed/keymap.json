@@ -954,15 +954,31 @@
     }
   },
   {
-    "context": "Editor && mode == full && edit_prediction",
+    "context": "Editor",
     "bindings": {
-      "cmd-shift-tab": "editor::NextEditPrediction"
+      "ctrl-cmd-alt-shift-j": "editor::ShowCompletions",
+      "cmd-f20": "editor::NextEditPrediction",
+      "cmd-shift-space": "editor::NextEditPrediction"
     }
   },
   {
     "context": "Editor && mode == full && edit_prediction",
     "unbind": {
-      "alt-tab": "editor::NextEditPrediction"
+      "alt-tab": "editor::NextEditPrediction",
+      "alt-shift-tab": "editor::PreviousEditPrediction"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-shift-f": "editor::SelectRight"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-shift-f": "editor::Format",
+      "ctrl-shift-f": "pane::DeploySearch"
     }
   },
   {
