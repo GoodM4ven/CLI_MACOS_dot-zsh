@@ -780,11 +780,6 @@
     }
   },
   {
-    "bindings": {
-      "ctrl-o": "workspace::Open"
-    }
-  },
-  {
     "unbind": {
       "cmd-o": "workspace::Open"
     }
@@ -858,6 +853,146 @@
     "context": "Terminal",
     "unbind": {
       "ctrl-enter": "assistant::InlineAssist"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-o": "workspace::OpenFiles"
+    }
+  },
+  {
+    "context": "RecentProjects || RecentProjects > Picker > Editor",
+    "unbind": {
+      "cmd-shift-a": "workspace::AddFolderToProject"
+    }
+  },
+  {
+    "context": "RecentProjects || RecentProjects > Picker > Editor",
+    "unbind": {
+      "cmd-shift-a": "workspace::AddFolderToProject"
+    }
+  },
+  {
+    "context": "RecentProjects || RecentProjects > Picker > Editor",
+    "unbind": {
+      "cmd-shift-a": "workspace::AddFolderToProject"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "cmd-w": [
+        "pane::CloseActiveItem",
+        {
+          "close_pinned": false
+        }
+      ]
+    }
+  },
+  {
+    "bindings": {
+      "cmd-q": "workspace::CloseWindow"
+    }
+  },
+  {
+    "unbind": {
+      "cmd-shift-w": "workspace::CloseWindow"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-5": [
+        "workspace::ActivatePane",
+        4
+      ]
+    }
+  },
+  {
+    "context": "Welcome",
+    "unbind": {
+      "cmd-5": [
+        "welcome::OpenRecentProject",
+        4
+      ]
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-6": [
+        "workspace::ActivatePane",
+        5
+      ]
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-7": [
+        "workspace::ActivatePane",
+        6
+      ]
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-8": [
+        "workspace::ActivatePane",
+        7
+      ]
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-9": [
+        "workspace::ActivatePane",
+        8
+      ]
+    }
+  },
+  {
+    "context": "Editor && mode == full && edit_prediction",
+    "bindings": {
+      "cmd-shift-tab": "editor::NextEditPrediction"
+    }
+  },
+  {
+    "context": "Editor && mode == full && edit_prediction",
+    "unbind": {
+      "alt-tab": "editor::NextEditPrediction"
+    }
+  },
+  {
+    "context": "AgentPanel",
+    "unbind": {
+      "ctrl-tab": "agents_sidebar::ToggleThreadSwitcher"
+    }
+  },
+  {
+    "context": "ThreadsSidebar",
+    "unbind": {
+      "ctrl-tab": "agents_sidebar::ToggleThreadSwitcher"
+    }
+  },
+  {
+    "context": "ThreadSwitcher",
+    "unbind": {
+      "ctrl-tab": "agents_sidebar::ToggleThreadSwitcher"
+    }
+  },
+  {
+    "context": "RunModal",
+    "unbind": {
+      "ctrl-tab": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-tab": "tab_switcher::Toggle"
     }
   }
 ]

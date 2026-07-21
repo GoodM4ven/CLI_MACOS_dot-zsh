@@ -53,7 +53,7 @@ pestbug() {
 }
 
 # TALL-Stack
-alias permit='f() { sudo "$HOME/Code/Scripts/CLI_LARAVEL_lara-stacker/scripts/helpers/permit.sh" "$1"; }; f'
+alias permit='f() { sudo "$HOME/Code/Scripts/CLI_MACOS_lara-stacker/scripts/helpers/permit.sh" "$1"; }; f'
 
 # Git
 alias girm='f() { git rm -r --cached "$1"; }; f'

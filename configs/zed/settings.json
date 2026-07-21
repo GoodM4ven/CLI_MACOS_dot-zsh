@@ -41,6 +41,7 @@
   "agent_servers": {
     "codex-acp": {
       "default_config_options": {
+        "model": "gpt-5.6-luna",
         "reasoning_effort": "high",
         "fast-mode": false,
         "mode": "agent-full-access"
@@ -49,6 +50,7 @@
     },
     "claude-acp": {
       "default_config_options": {
+        "model": "default",
         "mode": "bypassPermissions"
       },
       "type": "registry"

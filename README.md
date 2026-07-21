@@ -60,9 +60,12 @@ The repo is split into:
 - `aria2`: powers `download`.
 - `python3` + `openpyxl`: for `unicode-csv` (auto-installs `openpyxl`).
 - [`zed`](https://github.com/zed-industries/zed): the `code` alias.
+- [`OrbStack`](https://orbstack.dev/): Docker engine and Compose runtime for lara-stacker.
+- [`mkcert`](https://github.com/FiloSottile/mkcert) + `nss`: local HTTPS trust for [lara-stacker](https://github.com/GoodM4ven/CLI_MACOS_lara-stacker)'s `Certify` command (the `lara` alias).
+- [`imagemagick`](https://imagemagick.org): native library used when the mise PHP source build installs `imagick/imagick` through PIE.
 - Window manager stack (install docs): [Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements), [yabai](https://github.com/asmvik/yabai/wiki/Installing-yabai-(latest-release)), [skhd](https://github.com/asmvik/skhd), [SketchyBar](https://github.com/FelixKratz/SketchyBar), [Hammerspoon](https://www.hammerspoon.org) (SketchyBar requirement) — fonts/icons: Hack Nerd Font, SF Symbols.
 
-Everything above except `mise` is covered by `brew bundle --file Brewfile`.
+Everything above except `mise` and language-level packages is covered by `brew bundle --file Brewfile`.
 
 > [!NOTE]
 > `scripts/*.sh` keep `#!/usr/bin/env bash` shebangs and run fine on macOS's stock bash 3.2 — they're separate processes, unaffected by your login shell.
@@ -73,6 +76,7 @@ Everything above except `mise` is covered by `brew bundle --file Brewfile`.
 Sourced first — activates tool managers, sets env vars the other layers may need.
 
 - `mise activate zsh`
+- `$HOME/.composer/vendor/bin` on `PATH` for global Composer tools such as `laravel/installer`
 - `compinit` (loads completions, including OrbStack's, added to `fpath` by `~/.zprofile`)
 - `JAVA_HOME` / `PATH` for the Homebrew `openjdk@17` cask
 - `ANDROID_HOME` / `PATH` for Android Studio's SDK tools
@@ -89,6 +93,12 @@ Direct aliases, no function wrapper.
 - `update`: Homebrew update/upgrade/cleanup, then `softwareupdate -l`.
 
 ### Laravel / PHP
+
+Install Laravel's global CLI after mise PHP is available:
+
+```bash
+composer global require laravel/installer
+```
 
 - `cda`: `composer dump-autoload`
 - `art`: `php artisan`
@@ -156,7 +166,7 @@ Real shell functions for argument-aware or multi-step behavior.
 - `download <url...>`: `aria2c` with aggressive segmented download flags.
 - `permit <target>`: runs the external lara-stacker helper at:
   ```bash
-  $HOME/Code/Scripts/CLI_LARAVEL_lara-stacker/scripts/helpers/permit.sh
+  $HOME/Code/Scripts/CLI_MACOS_lara-stacker/scripts/helpers/permit.sh
   ```
 
 

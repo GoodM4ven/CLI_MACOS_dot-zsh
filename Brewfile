@@ -20,6 +20,12 @@ cask "hammerspoon" # https://www.hammerspoon.org — sketchybar requirement
 # Editor — the `code` function wraps `zed`.
 cask "zed" # https://github.com/zed-industries/zed
 
+# Local HTTPS trust — required by lara-stacker's Certify command (`lara`/`permit` aliases).
+cask "orbstack" # Docker engine and Compose runtime used by lara-stacker
+brew "mkcert" # https://github.com/FiloSottile/mkcert
+brew "nss"    # Firefox trust store support for mkcert
+brew "imagemagick" # Native library required by mise PHP's imagick/imagick PIE extension
+
 # AI CLIs — configs live under configs/, symlinked from ~/.codex and ~/.claude (see README).
 cask "codex"       # https://github.com/openai/codex
 cask "claude-code" # https://github.com/anthropics/claude-code

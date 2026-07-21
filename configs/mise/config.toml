@@ -8,6 +8,11 @@ pnpm = "11"
 python = "latest"
 uv = "latest"
 
+[env]
+_.path = ["{{env.HOME}}/.composer/vendor/bin"]
+
+# Source builds (not prebuilt_static) so PIE can add extensions the
+# static "bulk" flavor can't: redis/imagick are not compiled in by default.
+# NOTE: imagick/imagick needs `brew install imagemagick` present at build time.
 [env._.php]
-prebuilt_static = true
-prebuilt_static_flavor = "bulk"
+pie_extensions = "phpredis/phpredis imagick/imagick"
