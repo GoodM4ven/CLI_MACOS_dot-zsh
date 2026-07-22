@@ -957,8 +957,7 @@
     "context": "Editor",
     "bindings": {
       "ctrl-cmd-alt-shift-j": "editor::ShowCompletions",
-      "cmd-f20": "editor::NextEditPrediction",
-      "cmd-shift-space": "editor::NextEditPrediction"
+      "ctrl-cmd-alt-shift-k": "editor::ShowEditPrediction"
     }
   },
   {

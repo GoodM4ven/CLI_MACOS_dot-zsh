@@ -58,7 +58,7 @@
                         ]
                     },
                     {
-                        "description": "Zed: Cmd+Shift+Tab requests a Copilot suggestion",
+                        "description": "Zed: Cmd+Shift+Tab rejects and regenerates the Copilot prediction",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -77,9 +77,10 @@
                                     }
                                 },
                                 "to": [
+                                    { "key_code": "escape" },
                                     {
-                                        "key_code": "f20",
-                                        "modifiers": ["left_command"]
+                                        "key_code": "k",
+                                        "modifiers": ["left_control", "left_command", "left_option", "left_shift"]
                                     }
                                 ],
                                 "type": "basic"

@@ -53,7 +53,7 @@
     },
     "codex-acp": {
       "default_config_options": {
-        "model": "gpt-5.6-sol",
+        "model": "gpt-5.6-luna",
         "reasoning_effort": "high",
         "fast-mode": false,
         "mode": "agent-full-access"
