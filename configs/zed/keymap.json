@@ -18,7 +18,9 @@
       "cmd-shift-enter": [
         "workspace::SendKeystrokes",
         "cmd-right ;"
-      ]
+      ],
+      "ctrl-enter": "editor::NewlineBelow",
+      "ctrl-shift-enter": "editor::NewlineAbove"
     }
   },
   {
