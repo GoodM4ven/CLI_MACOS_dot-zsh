@@ -8,6 +8,7 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "default_open_behavior": "new_window",
+  "on_last_window_closed": "quit_app",
   "collaboration_panel": {
     "button": false
   },

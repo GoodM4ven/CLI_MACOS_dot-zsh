@@ -13,6 +13,11 @@ yabai -m config external_bar all:30:0
 yabai -m signal --add label="normalize_maximized_window" event=window_created action="/Users/goodm4ven/.config/yabai/normalize-maximized-window.sh"
 yabai -m signal --add label="normalize_maximized_window_on_focus" event=window_focused action="/Users/goodm4ven/.config/yabai/normalize-maximized-window.sh"
 
+# Quit apps that macOS leaves running in the background after their last
+# window closes (e.g. Helium). Apps with a native setting for this (Zed) are
+# excluded inside the script.
+yabai -m signal --add label="quit_app_on_last_window" event=window_destroyed action="/Users/goodm4ven/.config/yabai/quit-app-on-last-window.sh"
+
 # Keep SketchyBar's workspace and application summaries synchronized with
 # yabai. These trigger the custom event consumed by the left-side items.
 for event in application_launched application_terminated window_created window_destroyed window_focused window_moved space_changed; do
