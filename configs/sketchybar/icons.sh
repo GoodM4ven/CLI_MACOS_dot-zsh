@@ -11,3 +11,8 @@ export ICON_BATTERY_0=􀛪
 export ICON_BATTERY_CHARGING=􀢋
 
 export ICON_CALENDAR=􀉉
+
+# App launcher buttons
+export ICON_HELIUM=
+export ICON_ZED=
+export ICON_TABLEPLUS=
