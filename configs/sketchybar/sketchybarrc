@@ -85,6 +85,26 @@ sketchybar --add item clock right \
                  script="$PLUGIN_DIR/clock.sh" \
                  update_freq=30
 
+sketchybar --add item recording right \
+           --set recording \
+                 drawing=off \
+                 updates=on \
+                 icon="$ICON_RECORDING" \
+                 icon.color=0xFFFF453A \
+                 icon.font="SF Pro:Semibold:12" \
+                 icon.padding_left=7 \
+                 icon.padding_right=5 \
+                 label="Recording" \
+                 label.font="SF Pro:Semibold:13" \
+                 label.padding_left=0 \
+                 label.padding_right=8 \
+                 background.drawing=on \
+                 background.color=$ITEM_BG_COLOR \
+                 background.corner_radius=7 \
+                 background.height=23 \
+                 script="$PLUGIN_DIR/recording.sh" \
+                 update_freq=2
+
 sketchybar --add item calendar right \
            --set calendar \
                  icon="$ICON_CALENDAR" \
@@ -98,6 +118,6 @@ sketchybar --add item calendar right \
                  script="$PLUGIN_DIR/calendar.sh" \
                  update_freq=60
 
-sketchybar --reorder battery ram cpu input_source calendar clock
+sketchybar --reorder battery ram cpu input_source calendar clock recording
 
 sketchybar --update

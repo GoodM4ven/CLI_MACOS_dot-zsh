@@ -1,5 +1,6 @@
 #!/bin/bash
 export ICON_CLOCK=􀐫
+export ICON_RECORDING=􀀁
 export ICON_CPU=􀫥
 export ICON_RAM=􀫦
 export ICON_BATTERY_100=􀛨
