@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_buffer_font_size": 14.5,
+  "agent_ui_font_size": 19.0,
   "default_open_behavior": "new_window",
   "on_last_window_closed": "quit_app",
   "collaboration_panel": {
@@ -64,7 +66,7 @@
     },
     "claude-acp": {
       "default_config_options": {
-        "model": "opus",
+        "model": "default",
         "mode": "bypassPermissions"
       },
       "type": "registry"
