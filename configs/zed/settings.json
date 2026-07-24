@@ -56,8 +56,14 @@
       "type": "registry"
     },
     "codex-acp": {
+      "favorite_config_option_values": {
+        "collaboration_mode": [
+          "plan"
+        ]
+      },
       "default_config_options": {
-        "model": "gpt-5.6-luna",
+        "collaboration_mode": "default",
+        "model": "gpt-5.6-sol",
         "reasoning_effort": "high",
         "fast-mode": false,
         "mode": "agent-full-access"
