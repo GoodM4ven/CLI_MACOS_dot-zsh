@@ -259,6 +259,8 @@ The rest of my opinionated macOS setup — mostly `brew install --cask <name>`, 
 - Change Case
 - Lorem Ipsum
 - App Cleaner
+- Adhan Time
+- Hijri Converter
 
 ### Development
 
