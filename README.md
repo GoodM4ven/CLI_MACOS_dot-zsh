@@ -64,9 +64,17 @@ The repo is split into:
 - [`OrbStack`](https://orbstack.dev/): Docker engine and Compose runtime for lara-stacker.
 - [`mkcert`](https://github.com/FiloSottile/mkcert) + `nss`: local HTTPS trust for [lara-stacker](https://github.com/GoodM4ven/CLI_MACOS_lara-stacker)'s `Certify` command (the `lara` alias).
 - [`imagemagick`](https://imagemagick.org): native library used when the mise PHP source build installs `imagick/imagick` through PIE.
+- [`CocoaPods`](https://cocoapods.org) + [`Watchman`](https://facebook.github.io/watchman): NativePHP iOS dependency management and mobile hot reload.
 - Window manager stack (install docs): [Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements), [yabai](https://github.com/asmvik/yabai/wiki/Installing-yabai-(latest-release)), [skhd](https://github.com/asmvik/skhd), [SketchyBar](https://github.com/FelixKratz/SketchyBar), [Hammerspoon](https://www.hammerspoon.org) (SketchyBar requirement) — fonts/icons: Hack Nerd Font, SF Symbols.
 
 Everything above except `mise` and language-level packages is covered by `brew bundle --file Brewfile`.
+
+After installing or updating Xcode, make its full developer toolchain active so `xcrun` can find Simulator utilities:
+
+```bash
+sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+sudo xcodebuild -runFirstLaunch
+```
 
 > [!NOTE]
 > `scripts/*.sh` keep `#!/usr/bin/env bash` shebangs and run fine on macOS's stock bash 3.2 — they're separate processes, unaffected by your login shell.

@@ -44,6 +44,10 @@ brew "mkcert" # https://github.com/FiloSottile/mkcert
 brew "nss"    # Firefox trust store support for mkcert
 brew "imagemagick" # Native library required by mise PHP's imagick/imagick PIE extension
 
+# NativePHP development requirements
+brew "cocoapods" # iOS dependency management
+brew "watchman"  # mobile hot reloading
+
 # AI CLIs — configs live under configs/, symlinked from ~/.codex and ~/.claude (see README).
 cask "codex"       # https://github.com/openai/codex
 cask "claude-code" # https://github.com/anthropics/claude-code
