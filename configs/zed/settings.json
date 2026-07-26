@@ -8,6 +8,9 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "restore_on_startup": "last_workspace",
+  "file_types": {
+    "env": [".env", ".env.*", "*.env", ".env.example"]
+  },
   "agent_buffer_font_size": 14.5,
   "agent_ui_font_size": 19.0,
   "default_open_behavior": "new_window",
@@ -64,7 +67,7 @@
       },
       "default_config_options": {
         "collaboration_mode": "default",
-        "model": "gpt-5.6-sol",
+        "model": "gpt-5.6-luna",
         "reasoning_effort": "high",
         "fast-mode": false,
         "mode": "agent-full-access"
