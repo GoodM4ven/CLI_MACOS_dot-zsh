@@ -32,6 +32,8 @@
   {
     "context": "Terminal",
     "bindings": {
+      "cmd-c": "terminal::Copy",
+      "ctrl-shift-c": "terminal::Copy",
       "shift-enter": [
         "terminal::SendText",
         "\u001b\r"
@@ -333,13 +335,7 @@
   {
     "context": "Editor",
     "bindings": {
-      "alt-left": [
-        "editor::MoveToBeginningOfLine",
-        {
-          "stop_at_soft_wraps": true,
-          "stop_at_indent": true
-        }
-      ]
+      "alt-left": "editor::MoveToPreviousWordStart"
     }
   },
   {
@@ -379,12 +375,7 @@
   {
     "context": "Editor",
     "bindings": {
-      "alt-right": [
-        "editor::MoveToEndOfLine",
-        {
-          "stop_at_soft_wraps": true
-        }
-      ]
+      "alt-right": "editor::MoveToNextWordEnd"
     }
   },
   {
@@ -441,12 +432,7 @@
   {
     "context": "Editor",
     "bindings": {
-      "alt-shift-right": [
-        "editor::SelectToEndOfLine",
-        {
-          "stop_at_soft_wraps": true
-        }
-      ]
+      "alt-shift-right": "editor::SelectToNextWordEnd"
     }
   },
   {
@@ -487,13 +473,7 @@
   {
     "context": "Editor",
     "bindings": {
-      "alt-shift-left": [
-        "editor::SelectToBeginningOfLine",
-        {
-          "stop_at_soft_wraps": true,
-          "stop_at_indent": true
-        }
-      ]
+      "alt-shift-left": "editor::SelectToPreviousWordStart"
     }
   },
   {
@@ -517,15 +497,25 @@
   {
     "context": "Editor",
     "bindings": {
-      "alt-left": "editor::MoveToPreviousSubwordStart",
-      "alt-right": "editor::MoveToNextSubwordEnd",
+      "alt-left": "editor::MoveToPreviousWordStart",
+      "alt-right": "editor::MoveToNextWordEnd",
+      "alt-shift-left": "editor::SelectToPreviousWordStart",
+      "alt-shift-right": "editor::SelectToNextWordEnd",
       "ctrl-left": "editor::MoveToPreviousSubwordStart",
       "f13": "editor::SelectLargerSyntaxNode",
       "f14": "editor::SelectSmallerSyntaxNode",
       "f15": "editor::MoveLineUp",
       "f16": "editor::MoveLineDown",
       "f17": "editor::AddSelectionAbove",
-      "f18": "editor::AddSelectionBelow"
+      "f18": "editor::AddSelectionBelow",
+      "cmd-f17": "editor::AddSelectionAbove",
+      "cmd-f18": "editor::AddSelectionBelow"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-f20": "buffer_search::Deploy"
     }
   },
   {
@@ -695,7 +685,7 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-t": "project_symbols::Toggle"
+      "ctrl-shift-t": "project_symbols::Toggle"
     }
   },
   {
@@ -760,7 +750,7 @@
   },
   {
     "bindings": {
-      "ctrl-shift-t": "outline_panel::Toggle"
+      "ctrl-t": "outline_panel::Toggle"
     }
   },
   {
@@ -1010,6 +1000,29 @@
     "context": "Workspace",
     "unbind": {
       "ctrl-tab": "tab_switcher::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-b": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "unbind": {
+      "cmd-m": "zed::Minimize"
+    }
+  },
+  {
+    "context": "!SettingsWindow",
+    "unbind": {
+      "cmd-,": "zed::OpenSettings"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-h": "editor::Backspace"
     }
   }
 ]
