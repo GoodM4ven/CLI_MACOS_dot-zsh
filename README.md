@@ -229,63 +229,73 @@ To adopt a new machine: install the app, `mv` the real file/dir into the matchin
 
 The rest of my opinionated macOS setup — mostly `brew install --cask <name>`, config not tracked here.
 
+### Essentials
+
+- [Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements)
+- [yabai](https://github.com/asmvik/yabai)
+- [SketchyBar](https://github.com/FelixKratz/SketchyBar)
+- [Hammerspoon](https://www.hammerspoon.org)
+- [Raycast](https://raycast.com/)
+- [AltTab](https://alt-tab.app/)
+- [Pearcleaner](https://pearcleaner.com/)
+- [Hush](https://github.com/jspw/Hush)
 - [Caffeine](https://intelliscapesolutions.com/apps/caffeine)
 - [Macshot](https://github.com/sw33tLie/macshot)
-- [AltTab](https://alt-tab.app/)
-- [Raycast](https://raycast.com/)
-- [Helium](https://helium.computer/)
+- [Tailscale](https://tailscale.com/)
 - [Sloth](https://sveinbjorn.org/sloth)
-- [LocalSend](https://localsend.org/)
+- [Helium](https://helium.computer/)
+- [FFmpeg](https://ffmpeg.org)
+- [Codex](https://learn.chatgpt.com/docs/codex/cli)
+- [Claude Code](https://claude.com/claude-code)
+
+### Productivity
+
+- [Telegram](https://telegram.org)
+- [Anytype](https://anytype.io)
+- [Proton Mail](https://proton.me/mail)
+- [Proton Drive](https://proton.me/drive)
 - [OBS](https://obsproject.com/)
 - [HandBrake](https://handbrake.fr/)
-- [VLC](https://www.videolan.org/vlc/)
-- [Audacity](https://www.audacityteam.org/)
 - [Kdenlive](https://kdenlive.org/)
+- [Audacity](https://www.audacityteam.org/)
+- [VLC](https://www.videolan.org/vlc/)
 - [GIMP](https://www.gimp.org/)
 - [Inkscape](https://inkscape.org/)
-- [Proton Mail](https://proton.me/mail)
-- [Telegram](https://telegram.org)
+- [LocalSend](https://localsend.org/)
+- [RustDesk](https://rustdesk.com/)
 
 ### Raycast Extensions
 
-- Color Picker
-- Ruler
-- Mole
-- Image Modification
-- Tailwind CSS
-- Brew
-- QR Code Scanner
-- Kill Process
-- Change Case
-- Lorem Ipsum
-- App Cleaner
 - Adhan Time
 - Hijri Converter
+- Arabic Helpers
+- Change Case
+- Lorem Ipsum
+- Ruler
+- Color Picker
+- Image Modification
+- QR Code Scanner
+- Brew
+- Mole
+- Tailwind CSS
+- Kill Process
+- App Cleaner
 
 ### Development
 
+- [Zed](https://github.com/zed-industries/zed)
+- [mise](https://github.com/jdx/mise)
 - [OrbStack](https://orbstack.dev/)
 - [Meld](https://gitlab.com/dehesselle/meld_macos)
 - [TablePlus](https://tableplus.com/)
 - [Polypane](https://polypane.app/)
+- [Safari](https://developer.apple.com/safari/)
 - [Firefox](https://www.mozilla.org/firefox/)
 - [Google Chrome](https://www.google.com/chrome/)
 - [Android Studio](https://developer.android.com/studio/)
+- [AVD Manager](https://developer.android.com/studio/run/managing-avds)
 - [Xcode](https://apps.apple.com/app/xcode/id497799835)
-
-
-## Credits
-
-- [mise](https://github.com/jdx/mise)
-- [Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements)
-- [yabai](https://github.com/asmvik/yabai)
-- [SketchyBar](https://github.com/FelixKratz/SketchyBar)
-- [Raycast](https://raycast.com/)
-- [Hammerspoon](https://www.hammerspoon.org)
-- [Zed](https://github.com/zed-industries/zed)
-- [FFmpeg](https://ffmpeg.org)
-- [ChatGPT](https://chatgpt.com)
-- [Claude Code](https://claude.com/claude-code)
+- [Simulator](https://developer.apple.com/documentation/xcode/device-hub)
 
 </div>
 
